@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { SelectField } from '@/components/ui/select-field';
 import { Button } from '@/components/ui/button';
+import { router } from '@/router';
 
 const cities = [
   { label: 'Москва', value: 'Москва' },
@@ -26,6 +27,9 @@ const sizes = [
 ];
 
 export function CountDeliveryForm() {
+  const handleSubmit = () => {
+    router.navigate({ to: '/create' });
+  };
   return (
     <Card className='p-6'>
       <Text size='xl' className='font-bold'>
@@ -52,6 +56,7 @@ export function CountDeliveryForm() {
           variant='default'
           size='lg'
           className='rounded-xl'
+          onClick={handleSubmit}
         >
           Рассчитать стоимость
         </Button>
